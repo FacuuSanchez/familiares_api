@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="main">
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Seguro que deseas eliminar este elemento?</h2>
+        <div class="col-4 md-4 p-3">
+            <div class="card bg-dark card-project">
+                <div class="card-body text-center">
+                    <h2>{{ familiar.persona.persona }}</h2>
+                    <p>Documento: {{ familiar.persona.documento }}</p>
+                    <p>Fecha de Nacimiento: {{ familiar.persona.fecha_nacimiento|date:"d/m/Y" }}</p>
+                    <p>Tipo de Vinculo: {{ familiar.tipo_vinculo }}</p>
+                    <input class="btn btn-danger" type="submit" value="Yes">
+                    <a class="btn btn-primary" href="/">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

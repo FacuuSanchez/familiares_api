@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/../create/" method="POST" class="card card-body bg-secondary">
+    {% csrf_token %}
+    <p>
+        <label for="documento">Persona</label>
+        <input type="text" name="persona" class="form-control mb-2">
+    </p>
+    <p>
+        <label for="documento">Documento</label>
+        <input type="text" name="documento" class="form-control mb-2">
+    </p>
+    <p>
+        <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+        <input type="text" name="fecha_nacimiento" class="form-control mb-2">
+    </p>
+    <p>
+        <label for="fecha_nacimiento">Tipo de Vinculo</label>
+        <input type="text" name="tipo_vinculo" class="form-control mb-2">
+    </p>
+    <input class="btn btn-success" type="submit" value="Crear">
+</form>
+{% endblock content %}

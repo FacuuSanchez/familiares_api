@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-center">
+    <h1>Familiares</h1>
+    <a class="btn btn-success" href="create/">Crear Nuevo Familiar</a>
+    <div class="row p-2">
+{% for familiar in familiares %}
+    <div class="col-4 md-4 p-3">
+        <div class="card bg-dark card-project">
+            <div class="card-body">
+            <h4>{{ familiar.persona.persona }}</h4>
+            <p>Documento: {{ familiar.persona.documento }}</p>
+            <p>Fecha de Nacimiento: {{ familiar.persona.fecha_nacimiento|date:"d/m/Y" }}</p>
+            <p>Tipo de Vinculo: {{ familiar.tipo_vinculo}}</p>
+            <p>
+            <a class="btn btn-warning" href="/{{ familiar.id }}">Editar</a>
+            <a class="btn btn-danger" href="/delete/{{ familiar.persona.id }}">Eliminar</a>
+            </p>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+    </div>
+</div>
+{% endblock content %}

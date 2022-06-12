@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="/../edit/" method="POST" class="card card-body bg-secondary">
+    {% csrf_token %}
+    <h2 class="text-center">Editar Familiar</h2>
+    <div class="row">
+        <div class="col">
+            <label for="Persona.Id">Persona Id</label>
+            <input type="text" name="persona.id" value="{{ familiar.persona.id }}" class="form-control mb-2" readonly>
+        </div>
+        <div class="col">
+            <label for="Familiar.Id">Familiar Id</label>
+            <input type="text" name="familiar.id" value="{{ familiar.id }}" class="form-control mb-2" readonly>
+        </div>
+    </div>
+    <p>
+        <label for="documento" class="form-label">Persona</label>
+        <input type="text" name="persona" value="{{ familiar.persona.persona }}" class="form-control mb-2">
+    </p>
+    <p>
+        <label for="documento">Documento</label>
+        <input type="text" name="documento" value="{{ familiar.persona.documento }}" class="form-control mb-2">
+    </p>
+    <p>
+        <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+        <input type="text" name="fecha_nacimiento" value="{{ familiar.persona.fecha_nacimiento|date:"d/m/Y" }}" class="form-control mb-2">
+    </p>
+    <p>
+        <label for="fecha_nacimiento">Tipo de Vinculo</label>
+        <input type="text" name="tipo_vinculo" value="{{ familiar.tipo_vinculo }}" class="form-control mb-2">
+    </p>
+    <button class="btn btn-success">Editar</button>
+</form>
+{% endblock content %}
